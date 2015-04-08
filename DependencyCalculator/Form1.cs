@@ -18,9 +18,9 @@ namespace DependencyCalculator {
             InitializeComponent();
             depMet = new DepMetric();
             textBox1.Text = Convert.ToString(0);
-            textBox2.Text = Convert.ToString(0);
-            textBox3.Text = Convert.ToString(0);
-            textBox4.Text = Convert.ToString(0);
+            tBoxInterface.Text = Convert.ToString(0);
+            tBoxInjected.Text = Convert.ToString(0);
+            tBoxState.Text = Convert.ToString(0);
             textBox6.Text = Convert.ToString(0);
 
         }
@@ -35,7 +35,7 @@ namespace DependencyCalculator {
 
         private void textBox2_TextChanged(object sender, EventArgs e) {
             try {
-                depMet.cf = Convert.ToInt16(textBox2.Text);
+                depMet.cf = Convert.ToInt16(tBoxInterface.Text);
             } catch {
                 depMet.cf = 0;
             }
@@ -43,7 +43,7 @@ namespace DependencyCalculator {
 
         private void textBox3_TextChanged(object sender, EventArgs e) {
             try {
-                depMet.cj = Convert.ToInt16(textBox3.Text);
+                depMet.cj = Convert.ToInt16(tBoxInjected.Text);
             } catch {
                 depMet.cj = 0;
             }
@@ -51,7 +51,7 @@ namespace DependencyCalculator {
 
         private void textBox4_TextChanged(object sender, EventArgs e) {
             try {
-                depMet.cs = Convert.ToInt16(textBox4.Text);
+                depMet.cs = Convert.ToInt16(tBoxState.Text);
             } catch {
                 depMet.cs = 0;
             }
@@ -67,11 +67,11 @@ namespace DependencyCalculator {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            textBoxResult.Text = Convert.ToString(depMet.calcMetric());
+            tBoxResult.Text = Convert.ToString(depMet.calcMetric());
             textBox1.Text = Convert.ToString(depMet.cn);
-            textBox2.Text = Convert.ToString(depMet.cf);
-            textBox3.Text = Convert.ToString(depMet.cj);
-            textBox4.Text = Convert.ToString(depMet.cs);
+            tBoxInterface.Text = Convert.ToString(depMet.cf);
+            tBoxInjected.Text = Convert.ToString(depMet.cj);
+            tBoxState.Text = Convert.ToString(depMet.cs);
             textBox6.Text = Convert.ToString(depMet.n);
         }
 
