@@ -46,7 +46,6 @@
             this.btnCalc.TabIndex = 0;
             this.btnCalc.Text = "Calculate";
             this.btnCalc.UseVisualStyleBackColor = true;
-            this.btnCalc.Click += new System.EventHandler(this.button1_Click);
             // 
             // tBoxInterface
             // 
@@ -54,7 +53,7 @@
             this.tBoxInterface.Name = "tBoxInterface";
             this.tBoxInterface.Size = new System.Drawing.Size(35, 20);
             this.tBoxInterface.TabIndex = 2;
-            this.tBoxInterface.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.tBoxInterface.TextChanged += new System.EventHandler(this.tBoxInterface_TextChanged);
             // 
             // tBoxInjected
             // 
@@ -62,7 +61,7 @@
             this.tBoxInjected.Name = "tBoxInjected";
             this.tBoxInjected.Size = new System.Drawing.Size(35, 20);
             this.tBoxInjected.TabIndex = 3;
-            this.tBoxInjected.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.tBoxInjected.TextChanged += new System.EventHandler(this.tBoxInjected_TextChanged);
             // 
             // tBoxState
             // 
@@ -70,7 +69,7 @@
             this.tBoxState.Name = "tBoxState";
             this.tBoxState.Size = new System.Drawing.Size(35, 20);
             this.tBoxState.TabIndex = 4;
-            this.tBoxState.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.tBoxState.TextChanged += new System.EventHandler(this.tBoxState_TextChanged);
             // 
             // tBoxResult
             // 
@@ -121,6 +120,7 @@
             this.tBoxName.Name = "tBoxName";
             this.tBoxName.Size = new System.Drawing.Size(100, 20);
             this.tBoxName.TabIndex = 13;
+            this.tBoxName.TextChanged += new System.EventHandler(this.tBoxName_TextChanged);
             // 
             // label7
             // 
@@ -138,6 +138,7 @@
             this.lBoxDependency.Name = "lBoxDependency";
             this.lBoxDependency.Size = new System.Drawing.Size(386, 108);
             this.lBoxDependency.TabIndex = 15;
+            this.lBoxDependency.SelectedIndexChanged += new System.EventHandler(this.lBoxDependency_SelectedIndexChanged);
             // 
             // btnDependency
             // 
@@ -147,7 +148,7 @@
             this.btnDependency.TabIndex = 16;
             this.btnDependency.Text = "Add as a dependency";
             this.btnDependency.UseVisualStyleBackColor = true;
-            this.btnDependency.Click += new System.EventHandler(this.button2_Click);
+            this.btnDependency.Click += new System.EventHandler(this.btnDependency_Click);
             // 
             // Form1
             // 
