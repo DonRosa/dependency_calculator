@@ -27,7 +27,6 @@ namespace DependencyCalculator {
             double temp1 = 1 + (5 * cf) + (4 * cj);
             double temp2 = 1 + (5 * cn) * Math.Log(cn + 1, 2) * csn;
 
-            System.Windows.Forms.MessageBox.Show(Convert.ToString(csn));
             return temp1 / temp2; 
         }
 
