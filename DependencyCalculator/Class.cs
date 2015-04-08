@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DependencyCalculator {
-    class Class : IClass {
+    public class Class : IClass {
         private String name;
         private int interfaces;
         private int injected;
