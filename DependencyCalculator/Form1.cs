@@ -68,6 +68,11 @@ namespace DependencyCalculator {
 
         private void button1_Click(object sender, EventArgs e) {
             textBoxResult.Text = Convert.ToString(depMet.calcMetric());
+            textBox1.Text = Convert.ToString(depMet.cn);
+            textBox2.Text = Convert.ToString(depMet.cf);
+            textBox3.Text = Convert.ToString(depMet.cj);
+            textBox4.Text = Convert.ToString(depMet.cs);
+            textBox6.Text = Convert.ToString(depMet.n);
         }
         
       

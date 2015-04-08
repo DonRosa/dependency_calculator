@@ -13,31 +13,6 @@ namespace DependencyCalculator {
         public int cs { get; set; }
         public int n { get; set; }
 
-
-        //public int CN {
-        //    set { cn = value; }
-        //}
-
-        //public void setCN(int val) {
-        //    cn = val;
-        //}
-
-        //public int CF {
-        //    set { cf = value; }
-        //}
-
-        //public int CJ {
-        //    set { cj = value; }
-        //}
-
-        //public int CS {
-        //    set { cs = value; }
-        //}
-
-        //public int N {
-        //    set { n = value; }
-        //}
-
         public DepMetric() {
             cn = 0;
             cf = 0;
@@ -46,19 +21,20 @@ namespace DependencyCalculator {
             n = 0;
         }
 
-        public int calcMetric() {
+        public double calcMetric() {
             
-            int csn = calcFac(cs * n);
-            int temp1 = 1 + (5 * cf) + (4 * cj);
-            int temp2 = 1 + (5 * cn) * Convert.ToInt16(Math.Log(cn + 1, 2)) * csn;
+            double csn = calcFac(cs * n);
+            double temp1 = 1 + (5 * cf) + (4 * cj);
+            double temp2 = 1 + (5 * cn) * Math.Log(cn + 1, 2) * csn;
 
-            return temp1/temp2; 
+            System.Windows.Forms.MessageBox.Show(Convert.ToString(csn));
+            return temp1 / temp2; 
         }
 
         private int calcFac(int p) {
-            int result = 0;
+            int result = p;
 
-            for (int i = p; i > 1; i--) {
+            for (int i = p - 1; i > 1; i--) {
                 result *= i;
             }
 
