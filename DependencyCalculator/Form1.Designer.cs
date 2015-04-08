@@ -46,6 +46,7 @@
             this.btnCalc.TabIndex = 0;
             this.btnCalc.Text = "Calculate";
             this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // tBoxInterface
             // 

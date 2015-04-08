@@ -7,27 +7,26 @@ using System.Threading.Tasks;
 namespace DependencyCalculator {
    public class DepMetric {
 
-        public int cn { get; set; }
-        public int cf { get; set; }
-        public int cj { get; set; }
-        public int cs { get; set; }
-        public int n { get; set; }
-
         public DepMetric() {
-            cn = 0;
-            cf = 0;
-            cj = 0;
-            cs = 0;
-            n = 0;
+           
         }
 
-        public double calcMetric() {
-            
-            double csn = calcFac(cs * n);
-            double temp1 = 1 + (5 * cf) + (4 * cj);
-            double temp2 = 1 + (5 * cn) * Math.Log(cn + 1, 2) * csn;
+        public double calcMetric(List<Class> cList) {
+            double sum = 1;
 
-            return temp1 / temp2; 
+            foreach (Class c in cList) {
+                int cn = cList.Count - 1;
+                double csn = calcFac(c.State * cList.Count);
+                double temp1 = 1 + (5 * c.Interfaces) + (4 * c.Injected);
+                double temp2 = 1 + (5 * cn) * Math.Log(cn + 1, 2) * csn;
+                sum *= temp1 / temp2;
+            }
+
+            //double csn = calcFac(cs * n);
+            //double temp1 = 1 + (5 * cf) + (4 * cj);
+            //double temp2 = 1 + (5 * cn) * Math.Log(cn + 1, 2) * csn;
+
+            return sum; 
         }
 
         private int calcFac(int p) {

@@ -24,16 +24,13 @@ namespace DependencyCalculator {
             InitializeComponent();
             dependencys = new List<Class>();
             theClass = new Class();
+            setup();
+        }
 
-            //for (int i = 0; i < 10; i++) {
-            //    Class c = new Class();
-            //    c.Name = Convert.ToString(i);
-            //    dependencys.Add(c);
-            //}
-
-
-            //lBoxDependency.DataSource = dependencys;
-            //lBoxDependency.DisplayMember = "name";
+        private void setup() {
+            tBoxInterface.Text = Convert.ToString(0);
+            tBoxInjected.Text = Convert.ToString(0);
+            tBoxState.Text = Convert.ToString(0);
         }
 
         private void tBoxName_TextChanged(object sender, EventArgs e) {
@@ -72,12 +69,9 @@ namespace DependencyCalculator {
         }
 
         private void displayDependency() {
-            //lBoxDependency.Items.Add("Funkar nu !!");
             lBoxDependency.DataSource = null;
             lBoxDependency.DataSource = dependencys;
-            lBoxDependency.DisplayMember = "Name";
-            lBoxDependency.ValueMember = "Interfaces";
-            
+            lBoxDependency.DisplayMember = "Name";  
         }
 
         private void reset() {
@@ -89,6 +83,13 @@ namespace DependencyCalculator {
 
         private void lBoxDependency_SelectedIndexChanged(object sender, EventArgs e) {
 
+        }
+
+        private void btnCalc_Click(object sender, EventArgs e) {
+            collectClass();
+            DepMetric dm = new DepMetric();
+            double result = dm.calcMetric(dependencys);
+            tBoxResult.Text = Convert.ToString(result);
         }
 
        
