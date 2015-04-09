@@ -46,11 +46,19 @@ namespace DependencyCalculator {
         }
 
         private void tBoxInjected_TextChanged(object sender, EventArgs e) {
-            injected = Convert.ToInt16(tBoxInjected.Text);
+            try {
+                injected = Convert.ToInt16(tBoxInjected.Text);
+            } catch (Exception) {
+                injected = 0;
+            }
         }
 
         private void tBoxState_TextChanged(object sender, EventArgs e) {
-            state = Convert.ToInt16(tBoxState.Text);
+            try {
+                state = Convert.ToInt16(tBoxState.Text);
+            } catch (Exception) {
+                state = 0;
+            }
         }
 
         private void btnDependency_Click(object sender, EventArgs e) {
@@ -71,7 +79,7 @@ namespace DependencyCalculator {
         private void displayDependency() {
             lBoxDependency.DataSource = null;
             lBoxDependency.DataSource = dependencys;
-            lBoxDependency.DisplayMember = "Name";  
+            lBoxDependency.DisplayMember = "Name";
         }
 
         private void reset() {
@@ -86,10 +94,21 @@ namespace DependencyCalculator {
         }
 
         private void btnCalc_Click(object sender, EventArgs e) {
-            collectClass();
+            if (tBoxName.Text.Length > 0) {
+                collectClass(); 
+            }
             DepMetric dm = new DepMetric();
             double result = dm.calcMetric(dependencys);
             tBoxResult.Text = Convert.ToString(result);
+        }
+
+        private void lBoxDepFormat(object sender, ListControlConvertEventArgs e) {
+            String name = ((Class)e.ListItem).Name;
+            String cf = Convert.ToString(((Class)e.ListItem).Interfaces);
+            String cj = Convert.ToString(((Class)e.ListItem).Injected);
+            String cs = Convert.ToString(((Class)e.ListItem).State);
+
+            e.Value = name + ", cf: " + cf + ", cj: " + cj + ", cs: " + cs;
         }
 
        

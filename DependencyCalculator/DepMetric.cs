@@ -15,7 +15,7 @@ namespace DependencyCalculator {
             double sum = 1;
 
             foreach (Class c in cList) {
-                int cn = cList.Count - 1;
+                int cn = c.Injected + c.Interfaces + c.State;
                 double csn = calcFac(c.State * cList.Count);
                 double temp1 = 1 + (5 * c.Interfaces) + (4 * c.Injected);
                 double temp2 = 1 + (5 * cn) * Math.Log(cn + 1, 2) * csn;

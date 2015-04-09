@@ -140,6 +140,7 @@
             this.lBoxDependency.Size = new System.Drawing.Size(386, 108);
             this.lBoxDependency.TabIndex = 15;
             this.lBoxDependency.SelectedIndexChanged += new System.EventHandler(this.lBoxDependency_SelectedIndexChanged);
+            this.lBoxDependency.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lBoxDepFormat);
             // 
             // btnDependency
             // 
